@@ -1,7 +1,9 @@
 package com.missplitty.domain;
 
 import com.missplitty.utils.Utils;
+import lombok.Data;
 
+@Data
 public class Suggestion {
 
 	private Participant from;
@@ -17,32 +19,8 @@ public class Suggestion {
 		this.amount = amount;
 	}
 
-	public Participant getFrom() {
-		return from;
-	}
-
-	public void setFrom(Participant from) {
-		this.from = from;
-	}
-
-	public Participant getTo() {
-		return to;
-	}
-
-	public void setTo(Participant to) {
-		this.to = to;
-	}
-
-	public Float getAmount() {
-		return Math.round(amount * 100) / 100F;
-	}
-	
 	public String formatAmount() {
 		return Utils.numberFormat.format(getAmount());
-	}
-
-	public void setAmount(Float amount) {
-		this.amount = amount;
 	}
 
 	@Override

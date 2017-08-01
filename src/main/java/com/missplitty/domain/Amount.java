@@ -1,7 +1,9 @@
 package com.missplitty.domain;
 
 import com.missplitty.utils.Utils;
+import lombok.Data;
 
+@Data
 public class Amount {
 	private Float amount;
 	private Currency currency;
@@ -17,22 +19,6 @@ public class Amount {
 		this.currency = currency;
 	}
 
-	public Float getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Float amount) {
-		this.amount = amount;
-	}
-
-	public Currency getCurrency() {
-		return currency;
-	}
-
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
-	
 	public static Amount convert(Amount amount, Currency destinationCurrency) {
 		return new Amount(Utils.convertFloatToCurrency(amount.getAmount(), amount.getCurrency(), destinationCurrency), destinationCurrency);
 	}

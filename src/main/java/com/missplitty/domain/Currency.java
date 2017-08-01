@@ -1,5 +1,8 @@
 package com.missplitty.domain;
 
+import lombok.Data;
+
+@Data
 public class Currency {
 
 	private Integer id;
@@ -16,30 +19,6 @@ public class Currency {
 		super();
 		this.id = id;
 		this.name = name;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Float getRatio() {
-		return ratio;
-	}
-
-	public void setRatio(Float ratio) {
-		this.ratio = ratio;
 	}
 
 	@Override

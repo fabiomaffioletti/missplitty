@@ -2,11 +2,14 @@ package com.missplitty.domain;
 
 import java.util.List;
 
+import lombok.Data;
+import lombok.Singular;
 import org.joda.time.DateTime;
 
 import com.google.common.collect.Lists;
 import com.missplitty.logic.ExpenseCalculationResult;
 
+@Data
 public class Expense {
 
 	public enum ExpenseType {
@@ -28,68 +31,12 @@ public class Expense {
 		this.sharers = Lists.newArrayList();
 	}
 
-	public Integer getId() {
-		return id;
+	public void addPayer(Payer p) {
+		payers.add(p);
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public DateTime getDatetime() {
-		return datetime;
-	}
-
-	public void setDatetime(DateTime datetime) {
-		this.datetime = datetime;
-	}
-
-	public ExpenseType getExpenseType() {
-		return expenseType;
-	}
-
-	public void setExpenseType(ExpenseType expenseType) {
-		this.expenseType = expenseType;
-	}
-
-	public Amount getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Amount amount) {
-		this.amount = amount;
-	}
-
-	public List<Payer> getPayers() {
-		return payers;
-	}
-
-	public void setPayers(List<Payer> payers) {
-		this.payers = payers;
-	}
-
-	public List<Participant> getSharers() {
-		return sharers;
-	}
-
-	public void setSharers(List<Participant> sharers) {
-		this.sharers = sharers;
-	}
-
-	public void addPayer(Payer payer) {
-		this.payers.add(payer);
-	}
-
-	public void addSharer(Participant sharer) {
-		this.sharers.add(sharer);
+	public void addSharer(Participant p) {
+		sharers.add(p);
 	}
 
 	public ExpenseCalculationResult getCalculationResult(List<Participant> participants, Currency destinationCurrency) {

@@ -3,7 +3,9 @@ package com.missplitty.domain;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
+import lombok.Data;
 
+@Data
 public class Participant {
 
 	private Integer id;
@@ -21,46 +23,6 @@ public class Participant {
 		totalSpent = Maps.newHashMap();
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getTotalPayed() {
-		return totalPayed;
-	}
-
-	public void setTotalPayed(Integer totalPayed) {
-		this.totalPayed = totalPayed;
-	}
-
-	public Integer getTotalShared() {
-		return totalShared;
-	}
-
-	public void setTotalShared(Integer totalShared) {
-		this.totalShared = totalShared;
-	}
-
-	public Map<Currency, Float> getTotalSpent() {
-		return totalSpent;
-	}
-
-	public void setTotalSpent(Map<Currency, Float> totalSpent) {
-		this.totalSpent = totalSpent;
-	}
-	
 	public void incrementTotalSpent(Amount amount) {
 		totalSpent.put(amount.getCurrency(), (totalSpent.get(amount.getCurrency()) == null ? 0 : totalSpent.get(amount.getCurrency())) + amount.getAmount());
 	}
