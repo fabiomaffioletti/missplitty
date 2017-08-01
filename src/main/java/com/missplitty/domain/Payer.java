@@ -1,5 +1,8 @@
 package com.missplitty.domain;
 
+import lombok.Data;
+
+@Data
 public class Payer {
 
 	private Participant participant;
@@ -11,22 +14,6 @@ public class Payer {
 		this.amount = amount;
 	}
 
-	public Participant getParticipant() {
-		return participant;
-	}
-
-	public void setParticipant(Participant participant) {
-		this.participant = participant;
-	}
-
-	public Amount getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Amount amount) {
-		this.amount = amount;
-	}
-	
 	public void incrementPayer(Amount amount) {
 		incrementTotalPayed();
 		incrementTotalSpent(amount);
